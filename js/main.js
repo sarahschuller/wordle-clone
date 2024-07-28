@@ -3,10 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let guessedWords = [[]];
   let availableSpace = 1;
-  let word = "crane";
+  let word = getNewWord();
   let guessedWordCount = 0;
 
   const keys = document.querySelectorAll(".keyboard__row button");
+
+  function getNewWord() {
+    const words = ["crane", "apple", "boast", "brown", "grape", "kiwis"];
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex];
+  }
 
   function getTileColor(letter, i) {
     const isCorrectLetter = word.includes(letter);
