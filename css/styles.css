@@ -4,19 +4,22 @@
   padding: 0;
 }
 
+:root {
+  --light-gray: hsla(0, 0%, 95%, 0.319);
+}
+
 html,
 body {
   height: 100%;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
+  font-family: "Poppins", sans-serif;
 
-.wordle-game__container {
-  display: flex;
-  background-color: black;
-  height: 100%;
-  align-items: center;
-  flex-direction: column;
+  .wordle-game__container {
+    display: flex;
+    background-color: black;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .wordle-game__header {
@@ -52,18 +55,19 @@ body {
   grid-template-columns: repeat(5, 1fr);
   gap: 5px;
   padding: 10px;
-  box-sizing: border-box;
 }
 
 .square {
-  border: 2px solid white;
+  border: 2px solid var(--light-gray);
   min-width: 60px;
   min-height: 60px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
   color: white;
   text-transform: uppercase;
   text-align: center;
+  border-radius: 2px;
+  padding-top: 4px;
 }
 
 .keyboard__container {
@@ -81,12 +85,13 @@ body {
 .keyboard__row button {
   font-family: inherit;
   font-weight: 600;
+  font-size: 1.2rem;
   border: 0;
   padding: 0;
   height: 58px;
   cursor: pointer;
-  background-color: lightgray;
-  color: black;
+  background-color: var(--light-gray);
+  color: white;
   flex-grow: 1;
   text-transform: uppercase;
   margin-right: 6px;
@@ -100,4 +105,17 @@ button.keyboard__wide-btn {
 
 .spacer-half {
   flex-grow: 0.5;
+}
+
+.animate__flip {
+  animation: flip 2000ms;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
 }

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const keys = document.querySelectorAll(".keyboard__row button");
 
   function getNewWord() {
-    const words = ["crane", "apple", "boast", "brown", "grape", "kiwis"];
+    const words = window.wordList;
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   }
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentWord = currentWordArr.join("");
 
     const firstLetterId = guessedWordCount * 5 + 1;
-    const interval = 200;
+    const interval = 300;
     currentWordArr.forEach((letter, i) => {
       setTimeout(() => {
         const tileColor = getTileColor(letter, i);
